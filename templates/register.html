@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% static "images" as baseUrl %}
+
+{% block content %}
+<div class="container text-center">
+    <form action="register" method="POST">
+        {%csrf_token%}
+        <input type="text" name="first_name" placeholder="First name"><br>
+        <input type="text" name="last_name" placeholder="last name"><br>
+        <input type="text" name="username" placeholder="username"><br>
+        <input type="email" name="email" placeholder="email"><br>
+        <input type="password" name="pass1" placeholder="password"><br>
+        <input type="password" name="pass2" placeholder="retype password"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <div>
+        {% for message in messages %}
+        <h1>{{message}}</h1>
+        {% endfor %}
+    </div> 
+</div>
+
+
+
+{% endblock %}
